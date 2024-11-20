@@ -9,6 +9,10 @@ import { links } from "@/data/icon";
 //import { WobbleCard } from "@/components/ui/wobble-card";
 import Card from "@/components/Card";
 import { ExpEdu } from "@/components/ExpEdu";
+// page.tsx
+
+import Projects from "@/components/Projects";
+
 //import { Timeline } from "@/components/ui/timeline";
 
 
@@ -23,7 +27,7 @@ export default function Home() {
         {/*<Grid/>*/}
         <Card/>
         <ExpEdu/>
-        
+        <Projects />
       </div>
       
         <FloatingDock items={links}/>
