@@ -8,7 +8,7 @@ import Image from 'next/image';
 const Hero = () => {
   return (
     <div className="relative pt-8 pb-4">
-      <div className="min-h-screen w-full dark:bg-bground bg-white dark:bg-grid-white/[0.03] bg-grid-black/[0.2] flex flex-col items-center justify-center">
+      
         <div className="absolute inset-0 pointer-events-none flex items-center justify-center dark:bg-bground bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]" />
         <LampContainer className="w-full flex justify-center items-center mt-4 sm:mt-6 md:mt-8 lg:mt-10 xl:mt-12 2xl:mt-14">
 
@@ -42,7 +42,7 @@ const Hero = () => {
             </div>
           </div>
         </LampContainer>
-      </div>
+      
     </div>
   );
 };

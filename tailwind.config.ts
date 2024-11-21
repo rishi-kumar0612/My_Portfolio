@@ -66,13 +66,13 @@ const config = {
           DEFAULT:"#0b4021",
         },
         spotlight:{
-          DEFAULT:"#5085A5",
+          DEFAULT:"#007a7a",
         },
         bground:{
-          DEFAULT:"#F7F9FB",
+          DEFAULT:"#02010a",
         },
         textco:{
-          DEFAULT:"#141619",
+          DEFAULT:"#FFFFFF",
         },
 
         border: "hsl(var(--border))",
