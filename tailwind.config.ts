@@ -66,7 +66,7 @@ const config = {
           DEFAULT:"#0b4021",
         },
         spotlight:{
-          DEFAULT:"#007a7a",
+          DEFAULT:"#fcbf49",
         },
         bground:{
           DEFAULT:"#02010a",

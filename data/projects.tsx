@@ -9,7 +9,7 @@ export const cards: CardEx[] = [
   {
     description: "Advanced Wildfire Forecasting",
     title: "Advanced Wildfire Forecasting",
-    src: "/ReadyPlayerMe-Avatar.png", // Placeholder image path
+    src: "/map.png", // Placeholder image path
     ctaText: "View Details",
     ctaLink: "/projects/advanced-wildfire-forecasting", // Placeholder link
     content: () => (
@@ -22,7 +22,7 @@ export const cards: CardEx[] = [
   {
     description: "Facial Expression Analysis with Deep Learning",
     title: "Facial Expression Analysis with Deep Learning",
-    src: "/ReadyPlayerMe-Avatar.png", // Placeholder image path
+    src: "/map.png", // Placeholder image path
     ctaText: "View Details",
     ctaLink: "/projects/facial-expression-analysis", // Placeholder link
     content: () => (
@@ -35,7 +35,7 @@ export const cards: CardEx[] = [
   {
     description: "Spotify API Data Pipeline",
     title: "Spotify API Data Pipeline",
-    src: "/ReadyPlayerMe-Avatar.png",
+    src: "/map.png",
     ctaText: "View Details",
     ctaLink: "/projects/spotify-api-data-pipeline",
     content: () => (
@@ -57,7 +57,7 @@ export const cards: CardEx[] = [
   {
     description: "Tesla Trend Forecaster",
     title: "Tesla Trend Forecaster",
-    src: "/ReadyPlayerMe-Avatar.png",
+    src: "/map.png",
     ctaText: "View Details",
     ctaLink: "/projects/tesla-trend-forecaster",
     content: () => (

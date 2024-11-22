@@ -19,14 +19,16 @@ const Hero = () => {
                   className="text-center text-[18px] sm:text-[22px] md:text-2xl lg:text-3xl xl:text-4xl md:text-left"
                   words="Hey, I’m Rishi Kumar"
                 />
-                <Image
-                  src="/ReadyPlayerMe-Avatar.png"
-                  alt="Profile Picture"
-                  width={120}
-                  height={120}
-                  className="rounded-full sm:w-[140px] sm:h-[140px] md:w-[160px] md:h-[160px] lg:w-[180px] lg:h-[180px]"
-                  priority
-                />
+                <div className="rounded-full border-4 border-white sm:w-[140px] sm:h-[140px] md:w-[160px] md:h-[160px] lg:w-[180px] lg:h-[180px] overflow-hidden">
+                  <Image
+                    src="/me2.jpg"
+                    alt="Profile Picture"
+                    width={160} // Use the largest width to ensure the image fills the container
+                    height={160}
+                    className="w-full h-full object-cover"
+                    priority
+                  />
+                </div>
               </div>
               <TextGenerateEffect
                 className="text-center text-[12px] sm:text-[14px] md:text-lg lg:text-xl mt-3 md:mt-4 lg:mt-5"
