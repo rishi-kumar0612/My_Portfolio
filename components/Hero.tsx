@@ -10,13 +10,13 @@ const Hero = () => {
     <div className="relative pt-8 pb-4">
       <div className="absolute inset-0 pointer-events-none flex items-center justify-center dark:bg-bground bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]" />
       <LampContainer className="w-full flex justify-center items-center mt-4 sm:mt-6 md:mt-8 lg:mt-10 xl:mt-12 2xl:mt-14">
-        <div className="flex justify-center relative z-10 px-4 w-full">
+        <div className="flex justify-center relative z-10  pt-8 px-4 w-full">
           <div className="w-full max-w-[95vw] sm:max-w-[90vw] md:max-w-2xl lg:max-w-[60vw] flex flex-row items-center gap-6">
             {/* Left Side: Text Blocks */}
             <div className="flex flex-col items-start justify-center gap-4 w-2/3">
             <TextGenerateEffect
               className="text-left text-[18px] sm:text-[22px] md:text-2xl lg:text-3xl xl:text-4xl mb-2"
-              words="Hey, I’m Rishi Kumar 👋"
+              words="Hey, I’m Rishi Kumar 👋🏻"
               highlightPhrases={[
                 "Rishi Kumar",
               ]}

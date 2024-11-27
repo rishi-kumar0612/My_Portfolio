@@ -1,6 +1,5 @@
 "use client";
 import {
-  //useMotionValueEvent,
   useScroll,
   useTransform,
   motion,
@@ -37,14 +36,14 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
       className="w-full bg-white dark:bg-bground font-sans md:px-10"
       ref={containerRef}
     >
-      <div className="max-w-7xl mx-auto -mb-20 ml-5 py-10 px-4 md:px-8 lg:px-10">
-        <h2 className="hidden md:block text-xl md:pl-20 md:text-5xl font-bold text-white dark:text-white ">
+      {/* Adjusted the margins to match Card.tsx */}
+      <div className="max-w-7xl mx-auto px-5 lg:px-6 py-10">
+        <h2 className="text-xl md:text-4xl font-bold text-white dark:text-white">
           Experience:
         </h2>
-        
       </div>
 
-      <div ref={ref} className="relative max-w-7xl mx-auto  pb-20">
+      <div ref={ref} className="relative max-w-7xl mx-auto pb-20">
         {data.map((item, index) => (
           <div
             key={index}
@@ -54,7 +53,7 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
               <div className="h-10 absolute left-3 md:left-3 w-10 rounded-full bg-white dark:bg-black flex items-center justify-center">
                 <div className="h-4 w-4 rounded-full bg-neutral-200 dark:bg-neutral-800 border border-neutral-300 dark:border-neutral-700 p-2" />
               </div>
-              <h3 className="hidden md:block text-xl md:pl-20 md:text-5xl font-bold text-neutral-500 dark:text-spotlight ">
+              <h3 className="hidden md:block text-xl md:pl-20 md:text-5xl font-bold text-neutral-500 dark:text-spotlight">
                 {item.title}
               </h3>
             </div>

@@ -60,13 +60,13 @@ const Card = () => {
               Discover my journey, skills, and accomplishments. Download my resume and explore how I can contribute to your team.
             </p>
             <div className="mt-5">
-              <MagicButton
+            <MagicButton
                 title="Download Now"
                 icon={<FaLocationArrow />}
                 position="right"
-                onClick={() => {
+                handleClick={() => {
                   const link = document.createElement('a');
-                  link.href = '/path-to-resume.pdf'; // Replace with the actual path
+                  link.href = '/RISHI_KUMAR_RESUME.pdf'; // Ensure this path is correct and accessible
                   link.download = 'Rishi_Kumar_Resume.pdf';
                   document.body.appendChild(link);
                   link.click();
