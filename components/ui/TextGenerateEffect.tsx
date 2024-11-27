@@ -8,15 +8,16 @@ export const TextGenerateEffect = ({
   className,
   filter = true,
   duration = 0.7,
+  highlightPhrases = [],
 }: {
   words: string;
   className?: string;
   filter?: boolean;
   duration?: number;
+  highlightPhrases?: string[];
 }) => {
   const [scope, animate] = useAnimate();
-  // eslint-disable-next-line prefer-const
-  let wordsArray = words.split(" ");
+
   useEffect(() => {
     animate(
       "span",
@@ -25,24 +26,44 @@ export const TextGenerateEffect = ({
         filter: filter ? "blur(0px)" : "none",
       },
       {
-        duration: duration ? duration : 1,
+        duration: duration || 1,
         delay: stagger(0.2),
       }
     );
   }, [scope.current]);
 
   const renderWords = () => {
+    // Replace highlight phrases with markers
+    const highlightedText = highlightPhrases.reduce((acc, phrase) => {
+      const regex = new RegExp(`(${phrase})`, "gi");
+      return acc.replace(regex, `@@$1@@`);
+    }, words);
+
+    // Split text into segments (normal and highlighted parts)
+    const segments = highlightedText.split(/@@/);
+
+    // Render segments with animations
     return (
       <motion.div ref={scope}>
-        {wordsArray.map((word, idx) => {
+        {segments.map((segment, idx) => {
+          const isHighlighted = highlightPhrases.some((phrase) => segment === phrase);
+
           return (
             <motion.span
-              key={word + idx}
-              // change here if idx is greater than 3, change the text color to #CBACF9
-              className={` ${idx > 1 ? "text-white" : "dark:text-spotlight text-black"
+              key={segment + idx}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{
+                duration: 0.5,
+                delay: idx * 0.2, // Staggered animation
+              }}
+              className={`${
+                isHighlighted
+                  ? "text-spotlight font-bold" // Style for highlighted phrases
+                  : "dark:text-white text-black"
               } opacity-0`}
             >
-              {word}{" "}
+              {segment}
             </motion.span>
           );
         })}
@@ -52,11 +73,14 @@ export const TextGenerateEffect = ({
 
   return (
     <div className={cn("font-bold", className)}>
-      <div className="my-4">
-        <div className=" dark:text-white text-black leading-snug tracking-wide">
-          {renderWords()}
-        </div>
-      </div>
+      <motion.div
+        ref={scope}
+        initial="hidden"
+        animate="visible"
+        className="dark:text-white text-black leading-snug tracking-wide"
+      >
+        {renderWords()}
+      </motion.div>
     </div>
   );
 };

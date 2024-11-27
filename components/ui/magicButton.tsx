@@ -23,7 +23,7 @@ const MagicButton = ({
 }) => {
   return (
     <button
-  className={`px-10 py-2 rounded-lg bg-spotlight text-white font-bold transition duration-200 hover:bg-bground hover:text-black border-2 border-transparent hover:border-spotlight flex items-center gap-2 ${otherClasses} md:mt-10`}
+  className={`px-10 py-2 rounded-lg bg-spotlight text-white font-bold transition duration-200 hover:bg-white hover:text-spotlight border-2 border-transparent hover:border-spotlight flex items-center gap-2 ${otherClasses} md:mt-10`}
   onClick={handleClick}
 >
   {position === "left" && icon}
