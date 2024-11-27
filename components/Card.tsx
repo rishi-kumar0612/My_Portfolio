@@ -5,7 +5,7 @@ import { WobbleCard } from './ui/wobble-card'
 import { IconCloud } from './ui/icon-cloud'
 import { slugs } from '@/data/icon'
 import MagicButton from './ui/magicButton'
-import { FaEnvelope, FaGithub, FaLinkedin, FaLocationArrow } from 'react-icons/fa'
+import { FaEnvelope, FaGithub, FaLinkedin, FaLocationArrow, FaTwitter } from 'react-icons/fa'
 
 const Card = () => {
   return (
@@ -76,66 +76,88 @@ const Card = () => {
             </div>
           </div>
               
-          {/* Card 2: Location, Email, and LinkedIn */}
-          <div className="bg-gradient-to-r from-bground to-bground p-6 rounded-lg shadow-lg transform hover:scale-105 transition-transform duration-300 flex flex-col justify-between items-center text-center min-h-[250px]">
-            <h3 className="text-2xl font-bold text-white">Contact Me</h3>
-            <p className="mt-3 text-sm text-gray-200">
-              Based in the bustling city of <span className="text-spotlight font-bold">New York, NY</span>, I’m always open to new connections and opportunities.
-            </p>
-            <div className="mt-4 space-y-3">
-              <div className="flex items-center justify-center space-x-2">
-                <FaEnvelope className="text-spotlight" />
-                <a
-                  href="mailto:rishi.k.st24@gmail.com"
-                  className="text-spotlight font-bold hover:underline"
-                >
-                  rishi.k.st24@gmail.com
-                </a>
+          {/* Card 2: Location, Email, LinkedIn, and Twitter */}
+              <div className="bg-gradient-to-r from-bground to-bground p-6 rounded-lg shadow-lg transform hover:scale-105 transition-transform duration-300 flex flex-col justify-between items-center text-center min-h-[250px]">
+                <h3 className="text-2xl font-bold text-white">Contact Me</h3>
+                <p className="mt-3 text-sm text-gray-200">
+                  Based in the bustling city of <span className="text-spotlight font-bold">New York, NY</span>, I’m always open to new connections and opportunities.
+                </p>
+                <div className="mt-4 space-y-3">
+                  <div className="flex items-center justify-center space-x-2">
+                    <FaEnvelope className="text-spotlight" />
+                    <a
+                      href="mailto:rishi.k.st24@gmail.com"
+                      className="text-spotlight font-bold hover:underline"
+                    >
+                      rishi.k.st24@gmail.com
+                    </a>
+                  </div>
+                  <div className="flex items-center justify-center space-x-2">
+                    <FaLinkedin className="text-spotlight" />
+                    <a
+                      href="https://www.linkedin.com/in/rishi-kumar-06"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-spotlight font-bold hover:underline"
+                    >
+                      LinkedIn
+                    </a>
+                  </div>
+                  <div className="flex items-center justify-center space-x-2">
+                    <FaTwitter className="text-spotlight" />
+                    <a
+                      href="https://twitter.com/your-username"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-spotlight font-bold hover:underline"
+                    >
+                      Twitter
+                    </a>
+                  </div>
+                </div>
               </div>
-              <div className="flex items-center justify-center space-x-2">
-                <FaLinkedin className="text-spotlight" />
-                <a
-                  href="https://www.linkedin.com/in/rishi-kumar-06"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-spotlight font-bold hover:underline"
-                >
-                  LinkedIn
-                </a>
-              </div>
-            </div>
-          </div>
-              
-          {/* Card 3: Work Links */}
-          <div className="bg-gradient-to-r from-bground via-bground to-bground p-6 rounded-lg shadow-lg transform hover:scale-105 transition-transform duration-300 flex flex-col justify-between items-center text-center min-h-[250px]">
-            <h3 className="text-2xl font-bold text-white">Explore My Work</h3>
-            <p className="mt-3 text-sm text-gray-200">
-              Dive into my projects, experiments, and creative endeavors. Check out my profiles for detailed insights.
-            </p>
-            <div className="mt-4 space-y-3">
-              <div className="flex items-center justify-center space-x-2">
-                <FaGithub className="text-spotlight" />
-                <a
-                  href="https://github.com/rishi-kumar0612"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-spotlight font-bold hover:underline"
-                >
-                  GitHub
-                </a>
-              </div>
-              <div className="flex items-center justify-center space-x-2">
-                <img src="/tableau-icon.svg" alt="Tableau" className="h-5 w-5" />
-                <a
-                  href="https://public.tableau.com/profile/rishi.kumar"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-spotlight font-bold hover:underline"
-                >
-                  Tableau Public
-                </a>
-              </div>
-            </div>
+
+              {/* Card 3: Work Links with Kaggle */}
+              <div className="bg-gradient-to-r from-bground via-bground to-bground p-6 rounded-lg shadow-lg transform hover:scale-105 transition-transform duration-300 flex flex-col justify-between items-center text-center min-h-[250px]">
+                <h3 className="text-2xl font-bold text-white">Explore My Work</h3>
+                <p className="mt-3 text-sm text-gray-200">
+                  Dive into my projects, experiments, and creative endeavors. Check out my profiles for detailed insights.
+                </p>
+                <div className="mt-4 space-y-3">
+                  <div className="flex items-center justify-center space-x-2">
+                    <FaGithub className="text-spotlight" />
+                    <a
+                      href="https://github.com/rishi-kumar0612"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-spotlight font-bold hover:underline"
+                    >
+                      GitHub
+                    </a>
+                  </div>
+                  <div className="flex items-center justify-center space-x-2">
+                    <img src="/tableau-icon.svg" alt="Tableau" className="h-5 w-5" />
+                    <a
+                      href="https://public.tableau.com/profile/rishi.kumar"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-spotlight font-bold hover:underline"
+                    >
+                      Tableau Public
+                    </a>
+                  </div>
+                  <div className="flex items-center justify-center space-x-2">
+                    <img src="/kaggle-logo.svg" alt="Kaggle" className="h-5 w-5" />
+                    <a
+                      href="https://kaggle.com/your-username"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-spotlight font-bold hover:underline"
+                    >
+                      Kaggle
+                    </a>
+                  </div>
+                </div>  
           </div>
         </div>
         </div>

@@ -4,9 +4,18 @@ import { FaSearch } from 'react-icons/fa';
 
 const Projects = () => {
   const [searchTerm, setSearchTerm] = useState('');
+  const [showTop6, setShowTop6] = useState(true); // Default to show top 6 projects
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchTerm(e.target.value);
+  };
+
+  const handleShowTop6 = () => {
+    setShowTop6(true);
+  };
+
+  const handleShowAll = () => {
+    setShowTop6(false);
   };
 
   return (
@@ -18,9 +27,13 @@ const Projects = () => {
           <h2 className="text-xl md:text-4xl font-bold text-textco dark:text-textco">
             Projects:
           </h2>
+          <p className="mt-2 text-sm md:text-lg text-white dark:text-white">
+          Discover the projects that bring my ideas to life! Use the search bar below to explore specific skills, technologies, or topics—or simply scroll through and dive into everything I’ve built. 🌟✨
+          </p>
 
-          {/* Search bar */}
-          <div className="mt-6 flex justify-center">
+          {/* Search bar and buttons */}
+          <div className="mt-6 flex flex-col md:flex-row justify-center items-center gap-4">
+            {/* Search bar */}
             <div className="relative w-full max-w-md">
               <input
                 type="text"
@@ -33,12 +46,36 @@ const Projects = () => {
                 <FaSearch className="text-spotlight" />
               </div>
             </div>
+
+            {/* Filter buttons */}
+            <div className="flex space-x-4">
+              <button
+                onClick={handleShowTop6}
+                className={`px-4 py-2 rounded-full font-bold transition ${
+                  showTop6
+                    ? 'bg-spotlight text-white'
+                    : 'bg-gray-100 dark:bg-gray-800 text-textco dark:text-white'
+                }`}
+              >
+                Top 6 Projects
+              </button>
+              <button
+                onClick={handleShowAll}
+                className={`px-4 py-2 rounded-full font-bold transition ${
+                  !showTop6
+                    ? 'bg-spotlight text-white'
+                    : 'bg-gray-100 dark:bg-gray-800 text-textco dark:text-white'
+                }`}
+              >
+                See All Projects
+              </button>
+            </div>
           </div>
         </div>
 
         {/* Projects display */}
         <div className="max-w-7xl mx-auto mt-8 px-5 lg:px-6">
-          <ExpandableCardDemo searchTerm={searchTerm} />
+          <ExpandableCardDemo searchTerm={searchTerm} showTop6={showTop6} />
         </div>
 
         {/* Add bottom space for uniformity */}

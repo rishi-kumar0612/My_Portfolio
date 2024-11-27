@@ -39,8 +39,11 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
       {/* Adjusted the margins to match Card.tsx */}
       <div className="max-w-7xl mx-auto px-5 lg:px-6 py-10">
         <h2 className="text-xl md:text-4xl font-bold text-white dark:text-white">
-          Experience:
+          My Journey: One Milestone at a Time
         </h2>
+        <p className="mt-2 text-sm md:text-lg text-white dark:text-white">
+          Each experience has shaped me into the professional I am today—from diving into challenging projects to collaborating with brilliant minds. This journey reflects my growth, resilience, and passion for innovation. Scroll through to discover the milestones that define my path and inspire my future. 🚀
+        </p>
       </div>
 
       <div ref={ref} className="relative max-w-7xl mx-auto pb-20">

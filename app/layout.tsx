@@ -15,8 +15,8 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "trial round",
-  description: "Minimalist portfolio",
+  title: "Rishi Kumar 🙋🏻‍♂",
+  description: "My cool portfolio",
 };
 
 export default function RootLayout({

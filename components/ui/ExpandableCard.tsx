@@ -1,4 +1,3 @@
-// components/ui/ExpandableCardDemo.tsx
 "use client";
 import Image from "next/image";
 import React, { useEffect, useId, useRef, useState } from "react";
@@ -16,7 +15,13 @@ export interface CardEx {
   skills: string[];
 }
 
-export function ExpandableCardDemo({ searchTerm }: { searchTerm: string }) {
+export function ExpandableCardDemo({
+  searchTerm,
+  showTop6,
+}: {
+  searchTerm: string;
+  showTop6: boolean;
+}) {
   const [active, setActive] = useState<CardEx | null>(null);
   const ref = useRef<HTMLDivElement>(null);
   const id = useId();
@@ -42,54 +47,68 @@ export function ExpandableCardDemo({ searchTerm }: { searchTerm: string }) {
 
   const filteredCards = cards.filter((card) =>
     card.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    card.description.toLowerCase().includes(searchTerm.toLowerCase())
+    card.description.toLowerCase().includes(searchTerm.toLowerCase()) ||
+    card.skills.some((skill) =>
+      skill.toLowerCase().includes(searchTerm.toLowerCase())
+    )
   );
+  
 
-  const displayedCards =
-    searchTerm.trim() === "" ? cards.slice(0, 4) : filteredCards;
+  // Add logic for "Top 6 Projects" or "See All Projects"
+  const displayedCards = showTop6 ? filteredCards.slice(0, 6) : filteredCards;
 
   return (
     <>
       <AnimatePresence>
-        {active && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 bg-black/20 h-full w-full z-10"
-          />
-        )}
-      </AnimatePresence>
-      <AnimatePresence>
         {active ? (
           <div className="fixed inset-0 grid place-items-center z-[100]">
-            <motion.button
-              key={`button-${active.title}-${id}`}
-              layout
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0, transition: { duration: 0.05 } }}
-              className="flex absolute top-2 right-2 lg:hidden items-center justify-center bg-white rounded-full h-6 w-6"
-              onClick={() => setActive(null)}
-            >
-              <CloseIcon />
-            </motion.button>
+            {/* Expanded Card */}
             <motion.div
-              layoutId={`card-${active.title}-${id}`}
               ref={ref}
-              className="w-full max-w-[500px] max-h-[90vh] flex flex-col bg-white dark:bg-neutral-900 sm:rounded-3xl"
+              className="w-full max-w-[500px] max-h-[90vh] flex flex-col bg-white dark:bg-neutral-900 sm:rounded-3xl overflow-hidden"
+              initial={{
+                opacity: 0,
+                scale: 0.9,
+                y: 20,
+              }}
+              animate={{
+                opacity: 1,
+                scale: 1,
+                y: 0,
+              }}
+              exit={{
+                opacity: 0,
+                scale: 0.95,
+                y: 10,
+              }}
+              transition={{
+                duration: 0.4,
+                ease: "easeInOut",
+              }}
             >
-              {/* Modal content */}
               <div className="overflow-auto p-4">
-                <h3 className="font-bold text-neutral-700 dark:text-white">
+                {/* Expanded Content */}
+                <div className="w-full h-48 relative mb-4">
+                  <Image
+                    src={active.src}
+                    alt={active.title}
+                    layout="fill"
+                    objectFit="cover"
+                    className="rounded-lg"
+                  />
+                </div>
+                <h3 className="font-bold text-neutral-700 dark:text-white mb-2">
                   {active.title}
                 </h3>
-                <p className="text-neutral-600 dark:text-white">
+                <p className="text-neutral-600 dark:text-white mb-4">
                   {active.description}
                 </p>
-                <div className="mt-2">
-                  <h4 className="font-semibold">Skills:</h4>
-                  {/* Skills displayed as tags */}
+                <div>
+                  <h4 className="font-semibold">Details:</h4>
+                  <div className="mt-2">{active.content()}</div>
+                </div>
+                <div>
+                  <h4 className="font-semibold mt-4">Skills:</h4>
                   <div className="flex flex-wrap gap-2 mt-2">
                     {active.skills.map((skill, index) => (
                       <span
@@ -101,59 +120,57 @@ export function ExpandableCardDemo({ searchTerm }: { searchTerm: string }) {
                     ))}
                   </div>
                 </div>
-                <div className="mt-4">
-                  {typeof active.content === "function"
-                    ? active.content()
-                    : active.content}
+                <div className="mt-6">
+                  <a
+                    href={active.ctaLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="px-4 py-2 bg-spotlight text-white font-bold rounded-full hover:bg-white hover:text-spotlight border-2 border-spotlight transition"
+                  >
+                    View on GitHub
+                  </a>
                 </div>
               </div>
             </motion.div>
           </div>
         ) : null}
       </AnimatePresence>
-      <ul className="max-w-2xl mx-auto w-full gap-4">
-        {displayedCards.map((card, index) => (
-          <motion.div
-            layoutId={`card-${card.title}-${id}`}
-            key={`card-${card.title}-${id}`}
-            onClick={() => setActive(card)}
-            className="p-4 flex flex-col md:flex-row justify-between items-center hover:bg-neutral-50 dark:hover:bg-spotlight rounded-xl cursor-pointer"
-          >
-            {/* Card content */}
-            <div className="flex gap-4 flex-col md:flex-row ">
-              <motion.div layoutId={`image-${card.title}-${id}`}>
+
+      {/* Wrapper to centralize and align cards */}
+      <div className="max-w-7xl mx-auto px-5 lg:px-6">
+        <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {displayedCards.map((card, index) => (
+            <motion.div
+              key={`card-${index}`}
+              onClick={() => setActive(card)}
+              className="p-4 flex flex-col items-center justify-between bg-white dark:bg-neutral-800 hover:bg-neutral-50 dark:hover:bg-spotlight rounded-xl shadow-md cursor-pointer transition transform hover:scale-105"
+            >
+              <div className="flex flex-col items-center">
+                {/* Image */}
                 <Image
                   width={100}
                   height={100}
                   src={card.src}
                   alt={card.title}
-                  className="h-40 w-40 md:h-14 md:w-14 rounded-lg object-cover object-top"
+                  className="h-24 w-24 md:h-20 md:w-20 rounded-lg object-cover"
                 />
-              </motion.div>
-              <div className="">
-                <motion.h3
-                  layoutId={`title-${card.title}-${id}`}
-                  className="font-medium text-neutral-800 dark:text-white text-center md:text-left"
-                >
+                {/* Title */}
+                <h3 className="font-medium text-neutral-800 dark:text-white text-center">
                   {card.title}
-                </motion.h3>
-                <motion.p
-                  layoutId={`description-${card.description}-${id}`}
-                  className="text-neutral-600 dark:text-white text-center md:text-left"
-                >
+                </h3>
+                {/* Description */}
+                <p className="text-neutral-600 dark:text-white text-center mt-2">
                   {card.description}
-                </motion.p>
+                </p>
               </div>
-            </div>
-            <motion.button
-              layoutId={`button-${card.title}-${id}`}
-              className="px-4 py-2 text-sm rounded-full font-bold bg-gray-100 hover:bg-spotlight hover:text-white text-black mt-4 md:mt-0"
-            >
-              {card.ctaText}
-            </motion.button>
-          </motion.div>
-        ))}
-      </ul>
+              {/* Button */}
+              <button className="px-4 py-2 text-sm rounded-full font-bold bg-gray-100 hover:bg-spotlight hover:text-white text-black mt-4">
+                {card.ctaText}
+              </button>
+            </motion.div>
+          ))}
+        </ul>
+      </div>
     </>
   );
 }

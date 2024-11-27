@@ -5,7 +5,7 @@
  **/
 
 import { cn } from "@/lib/utils";
-import { IconLayoutNavbarCollapse } from "@tabler/icons-react";
+import { IconBooks, IconCode, IconHome, IconLayoutNavbarCollapse, IconUser } from "@tabler/icons-react";
 import {
   AnimatePresence,
   MotionValue,
@@ -18,18 +18,39 @@ import Link from "next/link";
 import { useRef, useState } from "react";
 
 export const FloatingDock = ({
-  items,
   desktopClassName,
   mobileClassName,
 }: {
-  items: { title: string; icon: React.ReactNode; href: string }[];
   desktopClassName?: string;
   mobileClassName?: string;
 }) => {
+  const sections = [
+    {
+      title: "Home",
+      icon: <IconHome className="h-full w-full text-neutral-500 dark:text-neutral-300" />,
+      href: "#",
+    },
+    {
+      title: "About",
+      icon: <IconUser className="h-full w-full text-neutral-500 dark:text-neutral-300" />,
+      href: "#about",
+    },
+    {
+      title: "ExpEdu",
+      icon: <IconBooks className="h-full w-full text-neutral-500 dark:text-neutral-300" />,
+      href: "#expedu",
+    },
+    {
+      title: "Projects",
+      icon: <IconCode className="h-full w-full text-neutral-500 dark:text-neutral-300" />,
+      href: "#projects",
+    },
+  ];
+
   return (
     <>
-      <FloatingDockDesktop items={items} className={desktopClassName} />
-      <FloatingDockMobile items={items} className={mobileClassName} />
+      <FloatingDockDesktop items={sections} className={desktopClassName} />
+      <FloatingDockMobile items={sections} className={mobileClassName} />
     </>
   );
 };
