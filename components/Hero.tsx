@@ -23,9 +23,9 @@ const Hero = () => {
             />
             <TextGenerateEffect
               className="text-left text-[12px] sm:text-[14px] md:text-lg lg:text-xl mt-2 leading-relaxed"
-              words="As a Python Developer and Data Engineer, I specialize in building AI-powered systems that transform raw data into impactful solutions. My mission? To innovate and empower organizations with technology that drives smarter decisions."
+              words="As a Python Developer and Data Analyst, I specialize in building AI-powered systems that transform raw data into impactful solutions. My mission? To innovate and empower organizations with technology that drives smarter decisions."
               highlightPhrases={[
-                "Python Developer and Data Engineer",
+                "Python Developer and Data Analyst",
                 "My mission?",
               ]}
             />
