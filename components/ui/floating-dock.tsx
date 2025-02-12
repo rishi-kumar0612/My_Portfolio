@@ -36,7 +36,7 @@ export const FloatingDock = ({
       href: "#about",
     },
     {
-      title: "ExpEdu",
+      title: "Experience",
       icon: <IconBooks className="h-full w-full text-neutral-500 dark:text-neutral-300" />,
       href: "#expedu",
     },

@@ -16,19 +16,21 @@ const Hero = () => {
             <div className="flex flex-col items-start justify-center gap-4 w-2/3">
             <TextGenerateEffect
               className="text-left text-[18px] sm:text-[22px] md:text-2xl lg:text-3xl xl:text-4xl mb-2"
-              words="Hey, I’m Rishi Kumar 👋🏻"
+              words="Hey, I'm Rishi Kumar 👋🏻"
               highlightPhrases={[
                 "Rishi Kumar",
               ]}
             />
             <TextGenerateEffect
               className="text-left text-[12px] sm:text-[14px] md:text-lg lg:text-xl mt-2 leading-relaxed"
-              words="As a Python Developer and Data Analyst, I specialize in building AI-powered systems that transform raw data into impactful solutions. My mission? To innovate and empower organizations with technology that drives smarter decisions."
+              words="As a Python Developer and AI/ML Engineer, I conjure AI magic to turn raw data into brilliant solutions. My mission? To arm organizations with tech so clever, it makes their decisions for them &quot;No crystal ball required!!🔮😝&quot;"
               highlightPhrases={[
-                "Python Developer and Data Analyst",
+                "Python Developer and AI/ML Engineer",
                 "My mission?",
+                "No crystal ball required!!🔮😝",
               ]}
             />
+
 
               <a href="#about" className="mt-5 md:mt-6 lg:mt-7">
                 <MagicButton

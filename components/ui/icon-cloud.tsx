@@ -43,6 +43,8 @@ export const renderCustomIcon = (icon: SimpleIcon, theme: string) => {
   const fallbackHex = theme === "light" ? "#6e6e73" : "#ffffff";
   const minContrastRatio = theme === "dark" ? 2 : 1.2;
 
+  console.log(icon);
+
   return renderSimpleIcon({
     icon,
     bgHex,
@@ -54,6 +56,7 @@ export const renderCustomIcon = (icon: SimpleIcon, theme: string) => {
       target: undefined,
       rel: undefined,
       onClick: (e: any) => e.preventDefault(),
+      title: icon.title || icon.slug, // Set the title attribute to the icon's name or slug
     },
   });
 };
@@ -73,7 +76,7 @@ export function IconCloud({ iconSlugs }: DynamicCloudProps) {
   }, [iconSlugs]);
 
   const renderedIcons = useMemo(() => {
-    if (!data) return null;
+    if (!data) return [null, null];
 
     return Object.values(data.simpleIcons).map((icon) =>
       renderCustomIcon(icon, theme || "light"),
@@ -81,9 +84,8 @@ export function IconCloud({ iconSlugs }: DynamicCloudProps) {
   }, [data, theme]);
 
   return (
-    // @ts-ignore
     <Cloud {...cloudProps}>
-      <>{renderedIcons}</>
+        {renderedIcons}
     </Cloud>
   );
 }

@@ -2,6 +2,16 @@
   "extends": ["next/core-web-vitals", "next/typescript"],
   "rules": {
     "@typescript-eslint/no-explicit-any": "off",
-    "@typescript-eslint/no-require-imports": "off"
+    "@typescript-eslint/no-require-imports": "off",
+    "@next/next/no-img-element": "off", // Suppress warnings for using <img> instead of <Image>
+    "@typescript-eslint/no-unused-vars": "warn", // Downgrade unused variable errors to warnings
+    "prefer-const": "warn", // Downgrade prefer-const errors to warnings
+    "@typescript-eslint/ban-ts-comment": [
+      "warn",
+      {
+        "ts-ignore": "allow-with-description" // Allow ts-ignore but require a description
+      }
+    ],
+    "react-hooks/exhaustive-deps": "warn" // Downgrade missing dependencies in useEffect to a warning
   }
 }

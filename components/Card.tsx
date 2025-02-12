@@ -6,6 +6,7 @@ import { IconCloud } from './ui/icon-cloud'
 import { slugs } from '@/data/icon'
 import MagicButton from './ui/magicButton'
 import { FaEnvelope, FaGithub, FaLinkedin, FaLocationArrow, FaTwitter } from 'react-icons/fa'
+/* eslint-disable @next/next/no-img-element */
 
 const Card = () => {
   return (
