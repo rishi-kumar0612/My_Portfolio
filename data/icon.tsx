@@ -22,14 +22,14 @@ export const links = [
     icon: (
       <IconBrandGithub className="h-full w-full text-neutral-500 dark:text-neutral-300" />
     ),
-    href: "https://github.com/your-username", // Replace with your GitHub link
+    href: "https://github.com/rishi-kumar0612", // Replace with your GitHub link
   },
   {
     title: "LinkedIn",
     icon: (
       <IconBrandLinkedin className="h-full w-full text-neutral-500 dark:text-neutral-300" />
     ),
-    href: "https://linkedin.com/in/your-username", // Replace with your LinkedIn profile
+    href: "https://www.linkedin.com/in/rishi-kumar-06/", // Replace with your LinkedIn profile
   },
   {
     title: "X (Twitter)",
@@ -54,13 +54,13 @@ export const links = [
     title: "Tableau",
     icon: (
       <Image
-        src="/tableau-icon.svg" // Path to Kaggle logo image
+        src="/tableau-icon.svg" // Path to Tableau logo image
         width={30}
         height={30}
         alt="Tableau Cloud"
       />
     ),
-    href: "https://kaggle.com/your-username", // Replace with your Kaggle profile
+    href: "https://public.tableau.com/app/profile/rishi.kumar22/vizzes", // Replace with your Tableau profile
   },
 ];
 

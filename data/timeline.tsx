@@ -9,7 +9,8 @@ export const data = [
           </p>
           <ul className="list-disc list-outside text-neutral-800 dark:text-white text-md md:text-md font-normal mb-8">
             <li>
-              Designed, developed, and deployed an AI-powered chatbot solution for the BulkMagic e-commerce platform using AWS Lex, facilitating seamless user interaction and efficient customer support.
+            Designed, developed and deployed an AI-powered chatbot solution for the BulkMagic e-commerce platform using
+            AWS Lex. The chatbot enables seamless user interaction by assisting customers with order tracking, and inquiries.
             </li>
             <li>
               Implemented AWS Lambda functions to handle user queries within the AWS Lex chatbot, retrieving real-time inventory and pricing data from AWS RDS (PostgreSQL) for accurate responses.
@@ -19,27 +20,6 @@ export const data = [
             </li>
             <li>
               Enhanced chatbot intelligence by leveraging Amazon Bedrock with LLMs to build a Retrieval-Augmented Generation (RAG) application, enabling personalized and context-aware interactions.
-            </li>
-          </ul>
-        </div>
-      ),
-    },
-    {
-      title: "Sep 2024 - Dec 2024",
-      content: (
-        <div>
-          <p className="text-neutral-800 dark:text-white text-lg md:text-xl font-extrabold mb-3">
-            Radical AI, NY, <i>AI Engineer</i>:
-          </p>
-          <ul className="list-disc list-outside text-neutral-800 dark:text-white text-md md:text-md font-normal mb-8">
-            <li>
-              Collaborated with cross-functional teams to design and build a quiz application using Google Gemini, optimizing data flow and user engagement.
-            </li>
-            <li>
-              Improved data pipelines by integrating PyPDFLoader, LangChain, and ChromaDB for efficient data retrieval and processing.
-            </li>
-            <li>
-              Utilized Vertex AI and Google Gemini to generate context-based quiz questions, increasing accuracy and user satisfaction.
             </li>
           </ul>
         </div>

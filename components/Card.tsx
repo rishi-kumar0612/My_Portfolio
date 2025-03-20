@@ -139,7 +139,7 @@ const Card = () => {
                   <div className="flex items-center justify-center space-x-2">
                     <img src="/tableau-icon.svg" alt="Tableau" className="h-5 w-5" />
                     <a
-                      href="https://public.tableau.com/profile/rishi.kumar"
+                      href="https://public.tableau.com/profile/rishi.kumar22"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-spotlight font-bold hover:underline"
